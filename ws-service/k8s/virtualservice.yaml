@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ws-service-vs
+  namespace: ws-service
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - ws-service-gateway
+  http:
+  - match:
+    - uri:
+        exact: "/ws-service"
+    rewrite:
+      uri: "/"
+    route:
+    - destination:
+        host: ws-service-svc
+        port:
+          number: 80

@@ -89,6 +89,7 @@ const broadcast = (data, ws) => {
 // set interval
 setInterval( function() {
     let data = lyrics_arr[lyrics_arr_index % (lyrics_arr.length)];
-    broadcast(data); lyrics_arr_index++;
+    broadcast(data); // call broadcast
+    lyrics_arr_index++; // increment position in lyrics arr
     console.log("Broadcasting message: " + data); },
     1000);

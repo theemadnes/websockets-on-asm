@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ws-service
+  namespace: ws-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ws-service
+  template:
+    metadata:
+      labels:
+        app: ws-service
+        version: v1
+    spec:
+      serviceAccountName: ws-service-ksa
+      containers:
+      - name: ws-service
+        image: gcr.io/alexmattson-scratch/ws-service:v1.0.0
+        ports:
+          - name: tcp
+            containerPort: 8080

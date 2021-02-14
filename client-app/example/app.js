@@ -27,7 +27,7 @@
       }
   
       //ws = new WebSocket(`ws://${location.host}`);
-      ws = new WebSocket(`ws://localhost:8080`);
+      ws = new WebSocket(`ws://34.67.100.153:80/ws-service`);
       ws.onerror = function () {
         showMessage('WebSocket error');
       };
