@@ -4,7 +4,7 @@ metadata:
   name: ws-service
   namespace: ws-service
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: ws-service
@@ -19,5 +19,5 @@ spec:
       - name: ws-service
         image: gcr.io/alexmattson-scratch/ws-service:v1.0.0
         ports:
-          - name: tcp
+          - name: wss
             containerPort: 8080
