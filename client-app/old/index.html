@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Config Connector Demo App</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+        body { padding-top:50px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron" id="myJumbotron">
+            <h1>🔎 calling backend websocket connection 🔍</h1>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        const ws_host = 'localhost:8080';
+
+        const WebSocket = require('ws');
+
+        const ws = new WebSocket('ws://' + ws_host);
+
+        ws.on('open', function open() {
+        ws.send('hello from client');
+        });
+
+        ws.on('message', function incoming(data) {
+        console.log(data);
+        });
+    </script>
+
+</body>
+</html>
