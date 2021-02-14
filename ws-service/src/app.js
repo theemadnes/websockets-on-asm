@@ -4,7 +4,7 @@ const port = process.env.PORT || 8080; // use port 8080 unless otherwise specifi
 
 
 const wss = new WebSocket.Server({ port: port });
-console.log("ws server listening on port", port);
+console.log("Websockets server listening on port", port);
 
 // lyrics
 const lyrics_arr = ["We're no strangers to love",
@@ -71,10 +71,10 @@ let lyrics_arr_index = 0; // tracking where we are in the array
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
+    console.log('Received: %s', message);
   });
 
-  ws.send('connected to server ' + os.hostname());
+  ws.send('Connected to server ' + os.hostname());
 });
 
 const broadcast = (data, ws) => {
