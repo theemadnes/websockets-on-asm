@@ -87,4 +87,8 @@ const broadcast = (data, ws) => {
    }
 
 // set interval
-setInterval( function() { let data = lyrics_arr[lyrics_arr_index % (lyrics_arr.length)]; broadcast(data); lyrics_arr_index++; console.log("Broadcasting message: " + data); }, 1000);
+setInterval( function() {
+    let data = lyrics_arr[lyrics_arr_index % (lyrics_arr.length)];
+    broadcast(data); lyrics_arr_index++;
+    console.log("Broadcasting message: " + data); },
+    1000);
